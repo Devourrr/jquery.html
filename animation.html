@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>애니메이션 효과</h3>
+<button id="btn1">Start Animation1</button>
+<button id="btn2">Start Animation2</button>
+<button id="btn3">Start Animation3</button>
+<button id="btn4">Start Animation4</button>
+<button id="btn5">Start Animation5</button>
+
+<div id="div1" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+<!-- position은 엘리먼트를 이동시킬시에 필요 -->
+
+
+<script> 
+$(document).ready(function(){
+  $("button#btn1").click(function(){
+    $("div#div1").animate({left: '250px'},1000);
+  });
+  
+  $("button#btn2").click(function(){
+    $("div").animate({  //css속성 여러개를 이용하여 애니메이션
+      left: '250px',  
+      opacity: '0.5',
+      height: '150px',
+      width: '150px'
+    });
+  });
+  
+  $("button#btn3").click(function(){
+	  $("div").animate({
+	    left: '250px',
+	    height: '+=150px', /*기존값에 150을 추가 */
+	    width: '+=150px'
+	  });
+   }); 
+  
+  $("button#btn4").click(function(){
+	  $("div").animate({
+	    height: 'toggle'
+	  });
+   });
+  
+  $("button#btn5").click(function(){
+	  var div = $("div"); //셀렉터로 선택한 엘리먼트를 변수로 사용
+	  //선택한 하나의 엘리먼트에 여러개의 animate()를 적용하면 queue기능을 이용 실행됨
+	  div.animate({height: '300px', opacity: '0.4'}, "slow");
+	  div.animate({width: '300px', opacity: '0.8'}, "slow");
+	  div.animate({height: '100px', opacity: '0.4'}, "slow");
+	  div.animate({width: '100px', opacity: '0.8'}, "slow");
+   }); 
+});
+</script> 
+</body>
+</html>
+<!-- 
+div 엘리먼트를 아래로 250px 3초에 걸쳐 이동하는 jquery문
+ $("div").animate({top:250px},3000);
+ -->

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>class 추가,제거</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.important {
+  font-weight: bold;
+  font-size: xx-large;
+  color : red;
+}
+
+.blue {
+  color: blue;
+}
+</style>
+</head>
+<body>
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<div>This is some important text!</div><br>
+
+<button id="btn1">Add classes to elements</button>
+<button id="btn2">Remove class from elements</button>
+<button id="btn3">Toggle class</button>
+<script>
+$(document).ready(function(){
+  $("button#btn1").click(function(){
+    $("h1, h2, p").addClass("blue"); /*<h1 class="blue"> */
+    $("div").addClass("important"); /*<div class="important">*/
+  });
+  $("button#btn2").click(function(){
+    $("h1, h2, p").removeClass("blue");
+  });
+  
+  $("button#btn3").click(function(){
+    $("h1, h2, p").toggleClass("blue");
+  });
+});
+	
+</script>
+</body>
+</html>

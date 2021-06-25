@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>content 얻어내기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>선택한 엘리먼트의 content를 알아내기</h3>
+
+<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+<button id="btn3">Show input value</button>
+<button id="btn4">Show href Value</button>
+
+<p>Name: <input type="text" id="testi" value="Mickey Mouse"></p>
+<p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    alert("Text: " + $("#test").text()); //tag를 제외한 순수 문자열만 가져옴
+  });
+  $("#btn2").click(function(){
+    alert("HTML: " + $("#test").html()); //tag포함 문자열을 가져옴
+  });
+  
+  $("#btn3").click(function(){
+    alert("Value: " + $("#testi").val()); //form의 입력 엘리먼트의 입력값(value속성값)
+  });
+  
+  $("#btn4").click(function(){
+    alert($("#w3s").attr("href")); //attr(속성명)은 속성값을 반환
+  });
+});
+</script>
+</body>
+</html>
+<!-- 
+div엘리먼트의 content중 순수 text내용만 얻어내기
+$("div").text();
+ -->

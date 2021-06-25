@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>parent node구하기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.ancestors * { /*class ancestors의 모든 후손들 */
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="ancestors">
+	<div style="width:500px;">
+		div (great-grandparent)
+		<ul> <!-- 할아버지 -->
+			<li>
+				li (direct parent)
+				<span>span</span>
+			</li>
+		</ul>
+	</div>
+	
+	<div style="width:500px;">
+		div (grandparent)
+		<p>
+			p (direct parent)
+			<span>span</span>
+		</p>
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+  //$("span").parent().css({"color": "red", "border": "2px solid red"});
+  //$("span").parents().css({"color": "red", "border": "2px solid red"});
+  $("span").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+  //div는 맨처음 만나는 조상까지
+});
+</script>
+</body>
+</html>

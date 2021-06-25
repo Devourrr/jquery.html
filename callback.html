@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h3>callback함수</h3>
+<button id="btn1">Hide with callback</button>
+<button id="btn2">Hide no callback</button>
+<p>This is a paragraph with little content.</p>
+
+<script>
+$(document).ready(function(){
+  $("button#btn1").click(function(){
+    $("p").hide("slow", function(){ //function(){}은 콜백함수임
+      alert("The paragraph is now hidden");
+    });
+  });
+  
+  $("button#btn2").click(function(){
+	  $("p").hide(1000); //callback을 사용 안해서 alert가 먼저 실행됨
+	  alert("The paragraph is now hidden");  
+  });
+});
+</script>
+</body>
+</html>

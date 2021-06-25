@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조건에 따라 반환하기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Welcome to My Homepage</h1>
+
+<p>This is a paragraph.</p>
+
+<div style="border: 1px solid black;">
+  <p>A paragraph in a div.</p>
+  <p>Another paragraph in a div.</p>
+</div>
+<br>
+
+<div style="border: 1px solid black;">
+  <p class="intro">A paragraph in another div.</p>
+  <p class="intro">Another paragraph in another div.</p>
+</div>
+<br>
+
+<div style="border: 1px solid black;">
+  <p>A paragraph in another div.</p>
+  <p>Another paragraph in another div.</p>
+</div>
+
+<script>
+$(document).ready(function(){
+  //$("div").first().css("background-color", "yellow");
+  //선택된 div중 맨처음 div
+  //$("div").last().css("background-color", "yellow");
+	//$("p").eq(1).css("background-color", "yellow");
+	$("p").filter(".intro").css("background-color", "yellow");
+	$("p").not(".intro").css("background-color", "red");
+});
+</script>
+</body>
+</html>
